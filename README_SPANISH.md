@@ -2,5 +2,5 @@
 
 Esta es una aplicación para dar seguimiento a un **delivery** en tiempo real.
 
-    Importante:
-    En la primera etapa de desarrollo, solo se obtendrá el tiempo estimado de entrega.
+**_Importante:_**
+**_En la primera etapa de desarrollo, solo se obtendrá el tiempo estimado de entrega._**
