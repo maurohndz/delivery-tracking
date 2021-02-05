@@ -7,5 +7,9 @@
   "repository": "https://github.com/mau02ro/delivery-tracking",
   "author": "Mauro Hernández <mauroDeveloper@hotmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "debug": "^4.3.1",
+    "pg": "^8.5.1"
+  }
 }
