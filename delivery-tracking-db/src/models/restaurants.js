@@ -1,9 +1,9 @@
 'use sctrict'
-const { Sequelize, DataTypes } = require('sequelize')
+const { DataTypes } = require('sequelize')
 
 const setupDatabase = require('../lib/db')
 
-module.exports = function setupMetricModel(config) {
+module.exports = function setupRestaurantModel(config) {
   const sequelize = setupDatabase(config)
 
   return sequelize.define('restaurants', {
