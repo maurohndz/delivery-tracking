@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "This is an application to track a delivery in real time - databases module.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "setup": "node src/setup.js"
+  },
   "repository": "https://github.com/mau02ro/delivery-tracking",
   "author": "Mauro Hernández <mauroDeveloper@hotmail.com>",
   "license": "MIT",
