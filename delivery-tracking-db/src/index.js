@@ -6,6 +6,7 @@ require('debug')('delivery-tracking:db')
 const setupDatabasePostgresql = require('./lib/postgresql')
 
 const setupRestaurantModel = require('./models/restaurants')
+const setupUserModel = require('./models/users')
 
 module.exports = async function setupModule(config) {
   config = defaults(config, {
@@ -18,13 +19,11 @@ module.exports = async function setupModule(config) {
 
   const client = await setupDatabasePostgresql(config)
 
-  const Restaurant = setupRestaurantModel(client)
+  const RestaurantModel = setupRestaurantModel(client)
+  const UserModel = setupUserModel(client)
 
-  const pop = await Restaurant.createOrUpdate({
-    name: 'Barola Burger 3',
-    phone_number: '+584145326572',
-    geolocation: '(4,3)',
-    uuid: '9b1h2b4d-3b7d-4bad-9bdd-2b0d7b9lop6d',
-  })
-  console.log(pop)
+  return {
+    RestaurantModel,
+    UserModel,
+  }
 }
