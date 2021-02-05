@@ -26,7 +26,6 @@ This project are implemented in PostgreSQL.
   - phone_number
   - geolocation
   - status
-  - deliveryId
 
 - **Deliveries**
 
