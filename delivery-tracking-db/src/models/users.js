@@ -1,5 +1,7 @@
 'use sctrict'
 
+const { handleError } = require('../utils/errors')
+
 module.exports = function setupUserModel(client) {
   const TABLE = 'users'
 
@@ -44,9 +46,19 @@ module.exports = function setupUserModel(client) {
       .catch(handleError)
   }
 
+  async function updateGeolocation(userId, geolocation) {
+    let values = [geolocation]
+    let query = `UPDATE ${TABLE} SET geolocation=$1 WHERE id = ${userId}`
+    return client
+      .query(query, values)
+      .then((result) => result.command)
+      .catch(handleError)
+  }
+
   return {
     findAll,
     findById,
     createOrUpdate,
+    updateGeolocation,
   }
 }
