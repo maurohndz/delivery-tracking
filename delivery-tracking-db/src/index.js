@@ -1,13 +1,14 @@
-'use sctrict'
+"use sctrict";
 
-const defaults = require('defaults')
-require('debug')('delivery-tracking:db')
+const defaults = require("defaults");
+require("debug")("delivery-tracking:db");
 
-const setupDatabasePostgresql = require('./lib/postgresql')
+const setupDatabasePostgresql = require("./lib/postgresql");
 
-const setupRestaurantModel = require('./models/restaurants')
-const setupUserModel = require('./models/users')
-const setupDealerModel = require('./models/dealers')
+const setupRestaurantModel = require("./models/restaurants");
+const setupUserModel = require("./models/users");
+const setupDealerModel = require("./models/dealers");
+const setupProductsModel = require("./models/products");
 
 module.exports = async function setupModule(config) {
   config = defaults(config, {
@@ -16,17 +17,19 @@ module.exports = async function setupModule(config) {
       min: 0,
       idle: 10000,
     },
-  })
+  });
 
-  const client = await setupDatabasePostgresql(config)
+  const client = await setupDatabasePostgresql(config);
 
-  const RestaurantModel = setupRestaurantModel(client)
-  const UserModel = setupUserModel(client)
-  const DealerModel = setupDealerModel(client)
+  const RestaurantModel = setupRestaurantModel(client);
+  const UserModel = setupUserModel(client);
+  const DealerModel = setupDealerModel(client);
+  const ProductsModel = setupProductsModel(client);
 
   return {
     RestaurantModel,
     UserModel,
     DealerModel,
-  }
-}
+    ProductsModel,
+  };
+};
